@@ -36,12 +36,6 @@ int main(){
         cout<<"Begin by entering your username: ";
         getline(cin,username);
         filename = username + ".txt";
-/* The next three lines have been moved down to only be called 
-   if the program is being run the first time for this user
-	cout<<"Now Enter Your Full name:";
-	while(cin.peek()=='\n')cin.ignore();
-        getline(cin,fullname);
-*/
 // The default constructor is called here
 	College mycollege;
         fin.open(filename.c_str());

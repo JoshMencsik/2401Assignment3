@@ -46,7 +46,7 @@ College::~College() {
     cout << "Destruction" << endl;
 }
 
-College College::operator =(const College& other) {
+void College::operator =(const College& other) {
     if (other.head == head) 
         return;
 
@@ -79,5 +79,60 @@ void College::display (ostream& outs) const {
             cursor = cursor -> link();
         }
     }
+}
+
+void College::add(const course& item) {
+    node* cursor = head;
+    node* prev = head;
+    node* tmp;
+
+    if (head == NULL) { //check for the empty list
+        head = new node(item, NULL);
+    }
+    else { //actually go through and find the course's alphabetical spot
+            //need a case for when you want to put the couse at the begining
+        if (item.get_course_number() < head -> data().get_course_number()) {
+            //make a new node and set its link to the old first, then name 
+            //it head to make it first
+            tmp = new node(item, head);
+            head = tmp;
+        }
+        else {
+            cursor = cursor -> link();
+            while (cursor != NULL) {
+                if (item.get_course_number() < cursor -> data().get_course_number()) {
+                    //for when the inserted course is greater
+                    prev -> set_link(new node(item, cursor));
+                    return;
+                }
+                cursor = cursor -> link();
+                prev = prev -> link();
+            }
+            //insert cursor at the end of list if the loop never triggered
+            prev -> set_link(new node(item, cursor));
+        }
+    }
+}
+
+void College::remove(const std::string courseName) {
+
+}
+
+int College::hours() const {
+
+    return 11;
+}
+
+int College::gpa() const {
+
+    return 11;
+}
+
+void College::load(std::istream& ins) {
+
+}
+
+void College::save(std::ostream& outs) const {
+
 }
 

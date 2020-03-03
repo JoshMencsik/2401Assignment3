@@ -41,9 +41,9 @@ void course::input(std::istream& ins){
 
 void course::output(std::ostream& outs)const{
     if(&outs == &cout){
-	outs<<"Course Number:"<<course_number<<endl;
-	outs<<"Grade received:"<<grade<<endl;
-	outs<<"Credit hours:"<<setprecision(2)<<hours<<endl;
+	outs<<"Course Number: "<<course_number<<endl;
+	outs<<"Grade received: "<<grade<<endl;
+	outs<<"Credit hours: "<<setprecision(2)<<hours<<endl;
       }
      else{
         outs<<course_number<<endl;

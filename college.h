@@ -17,14 +17,23 @@ class College {
 
         College(const College& other); 
         ~College();
-        College operator =(const College& other);
+        void operator =(const College& other);
 
         void display(std::ostream& outs) const;
 
-        void set_name(string n) {n = name;}
+        void set_name(const std::string& n) {name = n;}
+
+        void add(const course& item);
+        
+        //unimplemented
+        void remove(const std::string courseName);
+        int hours() const;
+        int gpa() const;
+        void load(std::istream& ins);
+        void save(std::ostream& outs) const;
 
     private:
-        string name;
+        std::string name;
         node* head;
 };
 
