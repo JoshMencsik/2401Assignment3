@@ -24,19 +24,21 @@ class College {
         void set_name(const std::string& n) {name = n;}
 
         void add(const course& item);
-        
-        //unimplemented
+
         void remove(const std::string courseName);
-        int hours() const;
-        int gpa() const;
+
+        double hours() const;
+
         void load(std::istream& ins);
+
         void save(std::ostream& outs) const;
+        //unimplemented
+        int gpa() const;
 
     private:
         std::string name;
         node* head;
 };
-
 
 
 
